@@ -34,3 +34,27 @@ body {
   width: 65%;
   background-color: #f4f4f4;
 }
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar, .main-content {
+    width: 100%;
+  }
+
+  .sidebar {
+    text-align: center;
+    padding: 30px 10px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .buttons a {
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+  }
+}
