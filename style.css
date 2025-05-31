@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+
+.sidebar {
+  background-color: #032B5A;
+  color: white;
+  padding: 20px;
+  width: 35%;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.buttons a {
+  display: inline-block;
+  margin: 10px 5px;
+  padding: 10px 15px;
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.main-content {
+  padding: 40px;
+  width: 65%;
+  background-color: #f4f4f4;
+}
