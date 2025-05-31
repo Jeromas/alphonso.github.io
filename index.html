@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Portfolio of Alphonso Saiewane, Data Scientist and AI/ML Engineer.">
   <title>Alphonso Saiewane</title>
 
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  
+
   <style>
     * {
       margin: 0;
@@ -15,14 +16,18 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
       display: flex;
       flex-direction: row;
       min-height: 100vh;
+      background-color: #f4f4f4;
     }
 
-    /* Sidebar */
     .sidebar {
       background-color: #003B73;
       color: white;
@@ -57,13 +62,17 @@
       border-radius: 8px;
       text-decoration: none;
       font-size: 0.9em;
+      transition: background-color 0.3s ease;
+    }
+
+    .buttons a:hover {
+      background-color: #0f6cd8;
     }
 
     .buttons a i {
       margin-right: 6px;
     }
 
-    /* Main Content */
     .main-content {
       flex-grow: 1;
       background-color: #f4f4f4;
@@ -74,6 +83,9 @@
       background-color: #001F3F;
       padding: 1em;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     nav a {
@@ -81,6 +93,7 @@
       margin: 0 20px;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
@@ -103,7 +116,6 @@
       line-height: 1.6;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       body {
         flex-direction: column;
@@ -126,9 +138,8 @@
 </head>
 <body>
 
-  <!-- Sidebar (Left Panel) -->
   <div class="sidebar">
-    <img src="Image4.jpg" alt="Profile Photo">
+    <img src="Image4.jpg" alt="Alphonso Saiewane Profile Photo">
     <h1>Alphonso Saiewane</h1>
     <p>Data Scientist | AI/ML Engineer | Data Engineer</p>
     <p>Hi, I'm Alphonso, a Data Scientist with 10+ years of experience delivering machine learning solutions in various domains.</p>
@@ -140,29 +151,24 @@
     </div>
   </div>
 
-  <!-- Main Content Area -->
   <div class="main-content">
 
-    <!-- Navigation Tabs -->
     <nav>
       <a href="#about">About Me</a>
       <a href="#projects">Projects</a>
       <a href="#certifications">Certificates & Trainings</a>
     </nav>
 
-    <!-- About Me -->
     <section id="about">
       <h2>About Me</h2>
       <p>[This is where you can provide a more detailed background about your work, values, and experience.]</p>
     </section>
 
-    <!-- Projects -->
     <section id="projects">
       <h2>Projects</h2>
       <p>[List or describe your recent projects with brief descriptions and optionally GitHub links.]</p>
     </section>
 
-    <!-- Certificates & Trainings -->
     <section id="certifications">
       <h2>Certificates & Trainings</h2>
       <p>[Mention your training or certificates like Salesforce, Udemy ML course, etc. Include logos if desired.]</p>
