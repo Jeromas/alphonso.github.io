@@ -4,6 +4,7 @@ body {
   display: flex;
 }
 
+/* Sidebar */
 .sidebar {
   background-color: #032B5A;
   color: white;
@@ -13,13 +14,14 @@ body {
   text-align: center;
 }
 
+/* Profile image */
 .profile-pic {
   border-radius: 50%;
   width: 150px;
   margin-bottom: 20px;
 }
 
-/* Grid-based layout for buttons */
+/* Buttons container as grid */
 .buttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
@@ -27,6 +29,7 @@ body {
   justify-items: center;
 }
 
+/* Individual button style */
 .buttons a {
   padding: 10px 15px;
   background: #007bff;
@@ -39,20 +42,21 @@ body {
   width: 120px;
 }
 
-/* Main content layout */
+/* Main content area */
 .main-content {
   padding: 40px;
   width: 65%;
   background-color: #f4f4f4;
 }
 
-/* Responsive layout for smaller screens */
+/* Responsive layout */
 @media (max-width: 768px) {
   body {
     flex-direction: column;
   }
 
-  .sidebar, .main-content {
+  .sidebar,
+  .main-content {
     width: 100%;
   }
 
@@ -66,13 +70,12 @@ body {
   }
 
   .buttons {
-    grid-template-columns: repeat(2, 1fr); /* still 2 per row on mobile */
+    grid-template-columns: repeat(2, 1fr); /* 2 buttons side by side */
     gap: 10px;
     justify-items: center;
   }
 
   .buttons a {
-    width: 100%;
-    max-width: 140px;
+    width: 120px; /* Fixed width for mobile too */
   }
 }
