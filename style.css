@@ -19,21 +19,34 @@ body {
   margin-bottom: 20px;
 }
 
+/* Grid-based layout for buttons */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
+  gap: 10px;
+  justify-items: center;
+}
+
 .buttons a {
-  display: inline-block;
-  margin: 10px 5px;
   padding: 10px 15px;
   background: #007bff;
   color: white;
   border-radius: 5px;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
 }
 
+/* Main content layout */
 .main-content {
   padding: 40px;
   width: 65%;
   background-color: #f4f4f4;
 }
+
+/* Responsive layout for smaller screens */
 @media (max-width: 768px) {
   body {
     flex-direction: column;
@@ -52,9 +65,14 @@ body {
     padding: 20px;
   }
 
+  .buttons {
+    grid-template-columns: repeat(2, 1fr); /* still 2 per row on mobile */
+    gap: 10px;
+    justify-items: center;
+  }
+
   .buttons a {
-    display: block;
-    margin: 10px auto;
-    width: 80%;
+    width: 100%;
+    max-width: 140px;
   }
 }
