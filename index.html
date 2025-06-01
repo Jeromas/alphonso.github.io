@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Alphonso Saiewane</title>
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     * {
       margin: 0;
@@ -12,13 +15,18 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
       display: flex;
-      flex-direction: row;
       min-height: 100vh;
+      flex-direction: row;
     }
 
+    /* Sidebar */
     .sidebar {
       background-color: #003B73;
       color: white;
@@ -44,24 +52,35 @@
       font-size: 0.95em;
     }
 
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
     .buttons a {
       display: inline-block;
-      margin: 8px 5px;
       padding: 10px 16px;
       background-color: #1e90ff;
       color: white;
       border-radius: 8px;
       text-decoration: none;
       font-size: 0.9em;
+      width: 100%;
+      max-width: 200px;
+      text-align: center;
     }
 
     .buttons a i {
       margin-right: 6px;
     }
 
+    /* Main Content */
     .main-content {
       flex-grow: 1;
       background-color: #f4f4f4;
+      padding: 0;
     }
 
     nav {
@@ -75,17 +94,17 @@
       margin: 0 20px;
       text-decoration: none;
       font-weight: bold;
-      cursor: pointer;
     }
 
-    nav a:hover,
     nav a.active {
       color: #00C4FF;
+      border-bottom: 2px solid #00C4FF;
+      padding-bottom: 5px;
     }
 
     section {
-      padding: 40px 60px;
       display: none;
+      padding: 40px 60px;
     }
 
     section.active {
@@ -104,6 +123,7 @@
       line-height: 1.6;
     }
 
+    /* Responsive */
     @media (max-width: 768px) {
       body {
         flex-direction: column;
@@ -116,6 +136,11 @@
       nav a {
         display: block;
         margin: 10px 0;
+      }
+
+      .buttons a {
+        width: 100%;
+        max-width: 100%;
       }
 
       section {
@@ -142,49 +167,41 @@
 
   <!-- Main Content -->
   <div class="main-content">
-
-    <!-- Tabs -->
     <nav>
-      <a class="tab-link active" data-tab="about">About Me</a>
-      <a class="tab-link" data-tab="projects">Projects</a>
-      <a class="tab-link" data-tab="certifications">Certificates & Trainings</a>
+      <a href="#about" class="nav-tab active" onclick="showSection('about')">About Me</a>
+      <a href="#projects" class="nav-tab" onclick="showSection('projects')">Projects</a>
+      <a href="#certifications" class="nav-tab" onclick="showSection('certifications')">Certificates & Trainings</a>
     </nav>
 
-    <!-- Sections -->
-    <section id="about" class="tab-content active">
+    <section id="about" class="active">
       <h2>About Me</h2>
       <p>[This is where you can provide a more detailed background about your work, values, and experience.]</p>
     </section>
 
-    <section id="projects" class="tab-content">
+    <section id="projects">
       <h2>Projects</h2>
       <p>[List or describe your recent projects with brief descriptions and optionally GitHub links.]</p>
     </section>
 
-    <section id="certifications" class="tab-content">
+    <section id="certifications">
       <h2>Certificates & Trainings</h2>
       <p>[Mention your training or certificates like Salesforce, Udemy ML course, etc. Include logos if desired.]</p>
     </section>
-
   </div>
 
-  <!-- JavaScript -->
+  <!-- JavaScript for tab switching -->
   <script>
-    const tabs = document.querySelectorAll('.tab-link');
-    const contents = document.querySelectorAll('.tab-content');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        // Remove active class from all
-        tabs.forEach(t => t.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
-
-        // Add active class to clicked tab and corresponding section
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.tab).classList.add('active');
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(sec => {
+        sec.classList.remove('active');
       });
-    });
-  </script>
+      document.getElementById(id).classList.add('active');
 
+      document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.querySelector(`a[href="#${id}"]`).classList.add('active');
+    }
+  </script>
 </body>
 </html>
