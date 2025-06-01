@@ -2,9 +2,10 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-/* Sidebar */
 .sidebar {
   background-color: #032B5A;
   color: white;
@@ -14,22 +15,20 @@ body {
   text-align: center;
 }
 
-/* Profile image */
 .profile-pic {
   border-radius: 50%;
   width: 150px;
   margin-bottom: 20px;
 }
 
-/* Buttons container as grid */
+/* Grid-based layout for buttons */
 .buttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
   gap: 10px;
-  justify-items: center;
+  justify-content: center;
 }
 
-/* Individual button style */
 .buttons a {
   padding: 10px 15px;
   background: #007bff;
@@ -42,40 +41,35 @@ body {
   width: 120px;
 }
 
-/* Main content area */
+/* Main content layout */
 .main-content {
   padding: 40px;
   width: 65%;
   background-color: #f4f4f4;
 }
 
-/* Responsive layout */
+/* Responsive layout for smaller screens */
 @media (max-width: 768px) {
   body {
     flex-direction: column;
   }
 
-  .sidebar,
-  .main-content {
+  .sidebar, .main-content {
     width: 100%;
   }
 
   .sidebar {
-    text-align: center;
     padding: 30px 10px;
   }
 
-  .main-content {
-    padding: 20px;
-  }
-
   .buttons {
-    grid-template-columns: repeat(2, 1fr); /* 2 buttons side by side */
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr); /* Maintain 2-column layout on mobile */
     justify-items: center;
+    gap: 10px;
   }
 
   .buttons a {
-    width: 120px; /* Fixed width for mobile too */
+    width: 100%;
+    max-width: 140px;
   }
 }
