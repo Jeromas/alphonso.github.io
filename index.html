@@ -3,12 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Portfolio of Alphonso Saiewane, Data Scientist and AI/ML Engineer.">
   <title>Alphonso Saiewane</title>
-
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
   <style>
     * {
       margin: 0;
@@ -16,16 +12,11 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: 'Segoe UI', sans-serif;
       display: flex;
       flex-direction: row;
       min-height: 100vh;
-      background-color: #f4f4f4;
     }
 
     .sidebar {
@@ -62,11 +53,6 @@
       border-radius: 8px;
       text-decoration: none;
       font-size: 0.9em;
-      transition: background-color 0.3s ease;
-    }
-
-    .buttons a:hover {
-      background-color: #0f6cd8;
     }
 
     .buttons a i {
@@ -76,16 +62,12 @@
     .main-content {
       flex-grow: 1;
       background-color: #f4f4f4;
-      padding: 0;
     }
 
     nav {
       background-color: #001F3F;
       padding: 1em;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
     }
 
     nav a {
@@ -93,15 +75,21 @@
       margin: 0 20px;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s ease;
+      cursor: pointer;
     }
 
-    nav a:hover {
+    nav a:hover,
+    nav a.active {
       color: #00C4FF;
     }
 
     section {
       padding: 40px 60px;
+      display: none;
+    }
+
+    section.active {
+      display: block;
     }
 
     section h2 {
@@ -138,8 +126,9 @@
 </head>
 <body>
 
+  <!-- Sidebar -->
   <div class="sidebar">
-    <img src="Image4.jpg" alt="Alphonso Saiewane Profile Photo">
+    <img src="Image4.jpg" alt="Profile Photo">
     <h1>Alphonso Saiewane</h1>
     <p>Data Scientist | AI/ML Engineer | Data Engineer</p>
     <p>Hi, I'm Alphonso, a Data Scientist with 10+ years of experience delivering machine learning solutions in various domains.</p>
@@ -151,30 +140,51 @@
     </div>
   </div>
 
+  <!-- Main Content -->
   <div class="main-content">
 
+    <!-- Tabs -->
     <nav>
-      <a href="#about">About Me</a>
-      <a href="#projects">Projects</a>
-      <a href="#certifications">Certificates & Trainings</a>
+      <a class="tab-link active" data-tab="about">About Me</a>
+      <a class="tab-link" data-tab="projects">Projects</a>
+      <a class="tab-link" data-tab="certifications">Certificates & Trainings</a>
     </nav>
 
-    <section id="about">
+    <!-- Sections -->
+    <section id="about" class="tab-content active">
       <h2>About Me</h2>
       <p>[This is where you can provide a more detailed background about your work, values, and experience.]</p>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="tab-content">
       <h2>Projects</h2>
       <p>[List or describe your recent projects with brief descriptions and optionally GitHub links.]</p>
     </section>
 
-    <section id="certifications">
+    <section id="certifications" class="tab-content">
       <h2>Certificates & Trainings</h2>
       <p>[Mention your training or certificates like Salesforce, Udemy ML course, etc. Include logos if desired.]</p>
     </section>
 
   </div>
+
+  <!-- JavaScript -->
+  <script>
+    const tabs = document.querySelectorAll('.tab-link');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active class from all
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        // Add active class to clicked tab and corresponding section
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
 
 </body>
 </html>
